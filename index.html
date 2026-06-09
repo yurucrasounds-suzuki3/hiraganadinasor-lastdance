@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>ひらがなダイナソー</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">5回なぞってガチャをまわそう</p>
+          <h1>ひらがなダイナソー</h1>
+          <p class="hero-text">
+            ひらがなをゆびでなぞってれんしゅう。5回クリアすると、きょうりゅうカードが1まいもらえるよ。
+          </p>
+        </div>
+        <div class="progress-card">
+          <p class="progress-label">ガチャまで</p>
+          <div class="progress-value"><span id="practiceCount">0</span><span>/5</span></div>
+          <div class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+          <p id="progressMessage" class="progress-message">まずは ひらがなを なぞろう</p>
+        </div>
+      </header>
+
+      <main class="main-grid">
+        <section class="panel practice-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-kicker">れんしゅう</p>
+              <h2 id="characterTitle">あ を なぞろう</h2>
+            </div>
+            <button id="changeCharacterButton" class="soft-button" type="button">べつのもじ</button>
+          </div>
+
+          <div class="trace-stage">
+            <div class="trace-board">
+              <img id="hiraganaImage" src="" alt="" class="trace-image" />
+              <canvas id="traceCanvas" class="trace-canvas"></canvas>
+              <div class="trace-overlay">
+                <span class="trace-badge">ゆびでなぞる</span>
+              </div>
+            </div>
+            <div class="trace-actions">
+              <button id="clearButton" class="soft-button" type="button">やりなおし</button>
+              <button id="completeButton" class="primary-button" type="button" disabled>つぎへ</button>
+            </div>
+            <p id="traceHint" class="trace-hint">もじのうえを たくさん なぞると クリアになるよ。</p>
+          </div>
+        </section>
+
+        <section class="panel side-panel">
+          <div class="gacha-card">
+            <p class="section-kicker">ごほうびガチャ</p>
+            <h2>きょうりゅうカード</h2>
+            <p class="gacha-copy">5回ぶんのれんしゅうがたまると、1回ガチャをひけます。</p>
+            <button id="gachaButton" class="gacha-button" type="button" disabled>まだひけないよ</button>
+            <div id="gachaResult" class="gacha-result empty">
+              <p>まだカードはでていません</p>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="panel-head compact">
+              <div>
+                <p class="section-kicker">ずかん</p>
+                <h2>もらったカード</h2>
+              </div>
+              <span id="collectionCount" class="collection-count">0 まい</span>
+            </div>
+            <div id="collectionGrid" class="collection-grid"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
